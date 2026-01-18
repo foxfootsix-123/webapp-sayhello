@@ -6,12 +6,12 @@ app=Flask(__name__,
           template_folder="templates",
           static_folder="static")
 #
-@app.route("/thankyou?get1=<formget1>")
+@app.route("/thankyou/get1=<formget1>")
 def thankyou(formget1):
     strFormGet1=f"{formget1}"
     strOut=f"Thank you, "+strFormGet1+"<BR>"
     strOut=strOut+"This is a response.<BR>"
-    strOut=strOut+"Welcome<BR>"
+    strOut=strOut+"Welcome.<BR>"
     return strOut
 #
 @app.route("/formget",methods=["POST","GET"])
@@ -33,5 +33,5 @@ def home():
     return render_template("index.html")
 #
 if(__name__ == "__main__"):
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5000,debug=True)
 #
